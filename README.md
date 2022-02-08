@@ -1,3 +1,8 @@
+---
+layout: page
+title: Permittering og nedbemanning
+permalink: /
+---
 # Permittering og nedbemanning
 En samling teknisk dokumentasjon, arkitektur, og skisser for applikasjonene tilhørende teamet Permittering og nedbemanning
 
