@@ -1,1 +1,4 @@
+header_pages:
+  - README.md
+  - permitteringsmelding.md
 theme: jekyll-theme-minimal
