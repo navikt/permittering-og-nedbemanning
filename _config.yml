@@ -2,4 +2,4 @@ title: Team Permittering og Nedbemanning
 header_pages:
   - README.md
   - permitteringsmelding.md
-theme: jekyll-theme-minimal
+theme: minima
