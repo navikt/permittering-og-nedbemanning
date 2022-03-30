@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Skjema for melding av masseoppsigelser, permitteringer og nedbemanninger 
+title: Skjema for melding av masseoppsigelser, permitteringer og nedbemanninger
 permalink: /skjema
 ---
 # Skjema for melding av masseoppsigelser, permitteringer og nedbemanninger

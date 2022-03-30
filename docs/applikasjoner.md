@@ -20,6 +20,8 @@ Backend for permitteringsskjema. Java-basert rest-api som lagrer skjemaer i data
 **permittering-journalføring**
 Backend for journalføring av skjema. Leser fra kafka-topic og journalfører til gosys.
 
+## Notifikasjoner/sak for meldinger
+[Dokumentasjon](https://navikt.github.io/permittering-og-nedbemanning/skjema) Dokumentasjon
 ## Informasjonssider om permitteringer
 **permittering-og-omstilling**
 Veiviseren for permittering og omstilling. Wiki basert på Sanity som cms.
@@ -33,8 +35,3 @@ Kalkulator for lønnsplikt og lignende
 **altinn-meldinger-api** (Backend for meldinger)
 
 **altinn-meldinger-dokgen** (journalføring for meldinger)
-
-## Under utvikling
-**permitteringsportal** (Frontend for nye 040804)
-
-**permitteringsportal-api** (Backend for nye 040804)
