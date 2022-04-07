@@ -14,3 +14,46 @@ Frontend for permitteringsskjema. Arbeidsgivere bruker denne applikasjonen til �
 **permitteringsskjema-api**
 Backend for permitteringsskjema. Java-basert rest-api som lagrer skjemaer i database og legger de på kafka-topic.
 
+## Sikkerhet og autentisering
+Innlogging med ID-porten. Applikasjonen benytter seg av TokenX for å hente ny access token til de ulike apiene som benyttes. Både backend for applikasjonen og videre i verdikjeden.
+## Teknisk
+React, Java, Spring, Kafka, Postgres. 
+
+```plantuml
+@startuml
+package "API/Backend" {
+  [Api]
+  [Altinn]
+  [Kafka]
+  [TokenX]
+}
+
+package "Frontend" {
+  [WebApp]
+}
+
+cloud {
+  [Kafka/Aiven]
+  [Id-Porten]
+}
+
+actor Arbeidsgiver
+
+[Nais/TokenX]
+
+database "Postgres" {
+  folder "Cloud SQL/permitteringsskjema-api" {
+    [permitteringsskjema-api-db]
+  }
+}
+
+Arbeidsgiver -->[WebApp]
+[Kafka] --> [Kafka/Aiven]
+[TokenX] --> [Nais/TokenX]
+[WebApp] --> [Nais/TokenX]
+[WebApp] --> [Api]
+[WebApp] --> [Id-porten]
+[Folder 3] --> [Frame 4]
+Api--> Postgres
+@enduml
+```
