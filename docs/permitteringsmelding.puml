@@ -31,17 +31,17 @@ database "Postgres" {
   }
 }
 
-Arbeidsgiver -->[WebApp]
-[Kafka] --> [Kafka/Aiven]
-[Autentisering] --> [Nais/TokenX]
-[WebApp] --> [Nais/TokenX]
+Arbeidsgiver --> [WebApp] : Oppretter og sender skjemaer
+[Kafka] --> [Kafka/Aiven] : Legger meldinger på topic for videre behandling
+[Autentisering] --> [Nais/TokenX] : Henter nye tokens
+[WebApp] --> [Nais/TokenX] : Henter nye tokens for bruk til Api
 [WebApp] --> [Api]
-[WebApp] --> [Id-Porten]
+[WebApp] --> [Id-Porten] : Autentiserer
 [Api] --> [Altinn]
 [Api] --> [Kafka]
 [Api] --> [Autentisering]
 [Api] --> [Repository]
 [Api] --> [Pam-janzz]
-[Altinn] ---> [Altinn proxy]
+[Altinn] ---> [Altinn proxy] : Henter roller
 Repository--> Postgres
 @enduml
