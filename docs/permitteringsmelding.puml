@@ -1,0 +1,47 @@
+@startuml
+package "API/Backend" {
+  [Api]
+  [Altinn]
+  [Kafka]
+  [Autentisering]
+  [Repository]
+}
+
+package "Frontend" {
+  [WebApp]
+}
+
+cloud {
+  [Kafka/Aiven]
+  [Id-Porten]
+}
+
+package "Integrasjoner i Nav/Nais" {
+  [Altinn proxy]
+  [Pam-janzz]
+}
+
+actor Arbeidsgiver
+
+[Nais/TokenX]
+
+database "Postgres" {
+  folder "Cloud SQL/permitteringsskjema-api" {
+    [permitteringsskjema-api-db]
+  }
+}
+
+Arbeidsgiver -->[WebApp]
+[Kafka] --> [Kafka/Aiven]
+[Autentisering] --> [Nais/TokenX]
+[WebApp] --> [Nais/TokenX]
+[WebApp] --> [Api]
+[WebApp] --> [Id-Porten]
+[Api] --> [Altinn]
+[Api] --> [Kafka]
+[Api] --> [Autentisering]
+[Api] --> [Repository]
+[Api] --> [Pam-janzz]
+[Altinn] ---> [Altinn proxy]
+Repository--> Postgres
+@enduml

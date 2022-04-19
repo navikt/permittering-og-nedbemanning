@@ -19,41 +19,4 @@ Innlogging med ID-porten. Applikasjonen benytter seg av TokenX for å hente ny a
 ## Teknisk
 React, Java, Spring, Kafka, Postgres. 
 
-```plantuml
-@startuml
-package "API/Backend" {
-  [Api]
-  [Altinn]
-  [Kafka]
-  [TokenX]
-}
-
-package "Frontend" {
-  [WebApp]
-}
-
-cloud {
-  [Kafka/Aiven]
-  [Id-Porten]
-}
-
-actor Arbeidsgiver
-
-[Nais/TokenX]
-
-database "Postgres" {
-  folder "Cloud SQL/permitteringsskjema-api" {
-    [permitteringsskjema-api-db]
-  }
-}
-
-Arbeidsgiver -->[WebApp]
-[Kafka] --> [Kafka/Aiven]
-[TokenX] --> [Nais/TokenX]
-[WebApp] --> [Nais/TokenX]
-[WebApp] --> [Api]
-[WebApp] --> [Id-porten]
-[Folder 3] --> [Frame 4]
-Api--> Postgres
-@enduml
-```
+### Tekniske skisser
