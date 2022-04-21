@@ -1,4 +1,5 @@
 @startuml
+skinparam componentStyle rectangle
 package "API/Backend" {
   [Api]
   [Altinn]
@@ -11,7 +12,7 @@ package "Frontend" {
   [WebApp]
 }
 
-cloud {
+cloud "Sky/eksterne systemer" {
   [Kafka/Aiven]
   [Id-Porten]
 }
@@ -33,15 +34,15 @@ database "Postgres" {
 
 Arbeidsgiver --> [WebApp] : Oppretter og sender skjemaer
 [Kafka] --> [Kafka/Aiven] : Legger meldinger på topic for videre behandling
-[Autentisering] --> [Nais/TokenX] : Henter nye tokens
-[WebApp] --> [Nais/TokenX] : Henter nye tokens for bruk til Api
+[Autentisering] --> [Nais/TokenX] : Henter nye tokens for bruk til eksterne api
+[WebApp] --> [Nais/TokenX] : Henter nye tokens for bruk til backend-api
 [WebApp] --> [Api]
 [WebApp] --> [Id-Porten] : Autentiserer
 [Api] --> [Altinn]
 [Api] --> [Kafka]
 [Api] --> [Autentisering]
 [Api] --> [Repository]
-[Api] --> [Pam-janzz]
+[Api] --> [Pam-janzz] : Henter stillingsbeskrivelser
 [Altinn] ---> [Altinn proxy] : Henter roller
 Repository--> Postgres
 @enduml
