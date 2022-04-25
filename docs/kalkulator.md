@@ -24,9 +24,6 @@ Merk at det er **permittering uten lønn** som gjelder for telling av maks 29/49
 * Arbeidsgiverne skal fylle inn alt av fravær grunnet ferie, streik, sykmelding og permisjon.
 Et smertepunkt er at arbeidsgivere begynner å fylle inn permitteringen fra første permitteringsdag når det riktige er å fylle inn fra første dag etter lønnplikt. Grunnen til at arbeidsgiverperiode 1 ikke håndteres i kalkulatoren er at dette er en beregning som inneholder stillingsprosent. Dette vil si at arbeidsgivere med en ansatt som jobber 50 prosent har dobbel så lang arbeidsgiverperiode 1 enn hvis hen hadde hatt full stilling. Det finnes flere grunner til at dette blir unødvendig komplisert. Arbeidsgiver bør ha oversikt over når arbeidsgiverperiode 1 ble avsluttet. 
 
-**permitteringsskjema-api**
-Backend for permitteringsskjema. Java-basert rest-api som lagrer skjemaer i database og legger de på kafka-topic.
-
 ## Sikkerhet og autentisering
 Tjenesten er åpen og brukerne trenger ikke autentisere seg.
 ## Teknisk
