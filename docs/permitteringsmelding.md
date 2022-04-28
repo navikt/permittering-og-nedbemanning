@@ -44,6 +44,6 @@ Backend for permitteringsskjema. Java-basert rest-api som lagrer skjemaer i data
 ## Sikkerhet og autentisering
 Innlogging med ID-porten. Applikasjonen benytter seg av TokenX for å hente ny access token til de ulike apiene som benyttes. Både backend for applikasjonen og videre i verdikjeden.
 ## Teknisk
-React, Java, Spring, Kafka, Postgres. 
-
+React, Java, Spring, Kafka, Postgres. Designen er relativt standard lagdelt med api, repository og diverse integrasjoner. Spring sitt meldingssystem brukes internt i applikasjonen.
 ### Tekniske skisser
+![teknisk skisse](assets/images/permitteringsmelding.png)
