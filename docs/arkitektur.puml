@@ -1,0 +1,59 @@
+@startuml
+skinparam componentStyle rectangle
+package "Skjemaløsning" {
+  [permitteringsskjema-api]
+  [permittering]
+  [permittering-journalforing]
+  [permitteringsmelding-notifikasjon]
+  [skjema-dokgen]
+}
+
+package "Altinn-meldinger" {
+  [altinn-meldinger-web]
+  [altinn-meldinger-api]
+  [altinn-meldinger-dokgen]
+}
+
+[permitterings-kalkulator]
+
+queue "aapen-permittering-arbeidsgiver"
+
+cloud "Sky/eksterne systemer" {
+  [Id-Porten]
+}
+
+package "Integrasjoner i Nav/Nais" {
+  [Altinn]
+  [Pam-janzz]
+  [Salesforce]
+  [Datavarehus]
+  [joark]
+  [norg2]
+  [ereg]
+}
+
+actor Arbeidsgiver
+actor Adminbruker
+
+Arbeidsgiver --> [permittering] : Oppretter og sender skjemaer
+[permittering] <--> [permitteringsskjema-api]
+[Id-Porten] <-- [permittering]
+[permitteringsskjema-api] --> [aapen-permittering-arbeidsgiver]
+[permitteringsskjema-api] --> [Pam-janzz]
+[permitteringsskjema-api] --> [Altinn]
+[aapen-permittering-arbeidsgiver] --> [permittering-journalforing]
+[aapen-permittering-arbeidsgiver] --> [permitteringsmelding-notifikasjon]
+[aapen-permittering-arbeidsgiver] --> [Salesforce]
+[aapen-permittering-arbeidsgiver] --> [Datavarehus]
+[permittering-journalforing] --> [skjema-dokgen]
+[permittering-journalforing] --> [joark]
+[permittering-journalforing] --> [norg2]
+[permittering-journalforing] --> [ereg]
+
+Adminbruker --> [altinn-meldinger-web]
+[altinn-meldinger-web] --> [altinn-meldinger-api]
+[altinn-meldinger-api] --> [altinn-meldinger-dokgen]
+
+Arbeidsgiver --> [permitterings-kalkulator]
+
+@enduml
