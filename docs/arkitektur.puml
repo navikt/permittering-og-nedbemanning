@@ -23,10 +23,10 @@ queue "aapen-permittering-arbeidsgiver"
 cloud "Sky/eksterne systemer" {
   [Id-Porten]
   [sanity]
+  [Altinn]
 }
 
 package "Integrasjoner i Nav/Nais" {
-  [Altinn]
   [Pam-janzz]
   [Salesforce]
   [Datavarehus]
@@ -56,6 +56,8 @@ Arbeidsgiver --> [permittering] : Oppretter og sender skjemaer
 Adminbruker --> [altinn-meldinger-web]
 [altinn-meldinger-web] --> [altinn-meldinger-api]
 [altinn-meldinger-api] --> [altinn-meldinger-dokgen]
+[altinn-meldinger-api] --> [Altinn]
+[altinn-meldinger-api] --> [joark]
 
 Arbeidsgiver --> [permitterings-kalkulator]
 Arbeidsgiver --> [permittering-og-omstilling]
