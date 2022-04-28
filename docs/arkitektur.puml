@@ -16,10 +16,13 @@ package "Altinn-meldinger" {
 
 [permitterings-kalkulator]
 
+[permittering-og-omstilling]
+
 queue "aapen-permittering-arbeidsgiver"
 
 cloud "Sky/eksterne systemer" {
   [Id-Porten]
+  [sanity]
 }
 
 package "Integrasjoner i Nav/Nais" {
@@ -55,5 +58,7 @@ Adminbruker --> [altinn-meldinger-web]
 [altinn-meldinger-api] --> [altinn-meldinger-dokgen]
 
 Arbeidsgiver --> [permitterings-kalkulator]
+Arbeidsgiver --> [permittering-og-omstilling]
+[permittering-og-omstilling] --> [sanity]
 
 @enduml
