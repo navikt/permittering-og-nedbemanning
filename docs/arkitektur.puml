@@ -40,10 +40,13 @@ actor Adminbruker
 
 Arbeidsgiver --> [permittering] : Oppretter og sender skjemaer
 [permittering] <--> [permitteringsskjema-api]
+[permittering] --> [Pam-janzz]
+
 [Id-Porten] <-- [permittering]
 [permitteringsskjema-api] --> [aapen-permittering-arbeidsgiver]
-[permitteringsskjema-api] --> [Pam-janzz]
 [permitteringsskjema-api] --> [Altinn]
+[permitteringsskjema-api] --> [Id-Porten]
+
 [aapen-permittering-arbeidsgiver] --> [permittering-journalforing]
 [aapen-permittering-arbeidsgiver] --> [permitteringsmelding-notifikasjon]
 [aapen-permittering-arbeidsgiver] --> [Salesforce]
